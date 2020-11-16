@@ -1,0 +1,23 @@
+{
+  "name": "resty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinMcNeil-401-advanced-javascript/resty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KevinMcNeil-401-advanced-javascript/resty/issues"
+  },
+  "homepage": "https://github.com/KevinMcNeil-401-advanced-javascript/resty#readme",
+  "dependencies": {
+    "create-react-app": "^4.0.0"
+  }
+}
