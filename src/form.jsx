@@ -2,27 +2,45 @@ import React from 'react';
 import './sass/form.scss';
 
 
-function Form() {
-  return (
-    <div id="form">
-      <form>
-        <fieldset>
-          <label>URL</label>
-          <input name="URL" type="text" />
-          <button type="submit">Go</button>
-        </fieldset>
-      </form>
-      <div id="button">
-        <button name="Get">Get</button>
-        <button name="Post">Post</button>
-        <button name="Put">Put</button>
-        <button name="Delete">Delete</button>
+class Form extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      url: '',
+      method: '',
+    };
+  }
+
+  handleClick = (event) => {
+    const method = event.target.value;
+    this.setState({ method: method });
+  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <div id="form">
+        <form onSubmit={this.handleSubmit}>
+          <fieldset>
+            <label>URL</label>
+            <input name="URL" type="text" />
+            <button type="submit">Go</button>
+          </fieldset>
+          <div id="button">
+            <button onClick={this.hancleClick} value="Get">Get</button>
+            <button onClick={this.hancleClick} value="Post">Post</button>
+            <button onClick={this.hancleClick} value="Put">Put</button>
+            <button onClick={this.hancleClick} value="Delete">Delete</button>
+          </div>
+          <div onSubmit={this.handleSubmit}>
+            <textarea name="textbox" rows="10" cols="70">{this.state.method}</textarea>
+          </div>
+        </form>
       </div>
-      <div>
-        <textarea name="textbox" rows="10" cols="70"></textarea>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 

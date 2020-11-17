@@ -12,12 +12,6 @@ function app(){
   );
 }
 
-// class app extends React.Component {
-//   render() {
-//     return(
-//       Header()
-//     );
-//   }
-// }
+
 
 export default app;
