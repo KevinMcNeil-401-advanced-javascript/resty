@@ -14,8 +14,7 @@ class Form extends React.Component {
   }
 
   pretty(notprettydata) {
-    let prettydata = <JSONPretty id="json-pretty" data={notprettydata}></JSONPretty>;
-    return prettydata;
+    return  <JSONPretty id="json-pretty" data={notprettydata}></JSONPretty>;
   }
 
   handleClick = (event) => {
@@ -30,7 +29,6 @@ class Form extends React.Component {
     fetch(url)
       .then(response => response.json())
       .then(data => this.setState({ data: data }));
-
   }
 
   render() {
@@ -50,7 +48,9 @@ class Form extends React.Component {
           <button onClick={this.handleClick} value="Delete">Delete</button>
         </div>
         <div>
-          <textarea name="textbox" rows="10" cols="70" value={`Request:${this.state.method} Url:${this.state.url} Results:${this.pretty(this.state.data)}`}></textarea>
+          <p>{`Request:${this.state.method}`}</p>
+          <p>{`Url:${this.state.url}`}</p>
+          <p><JSONPretty id="json-pretty" data={this.state.data}></JSONPretty></p>
         </div>
       </div>
     );
