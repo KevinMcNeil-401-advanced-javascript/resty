@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './header.jsx';
 import Form from './form.jsx';
+import Foooter from './footer.jsx';
 
 
 function app(){
@@ -8,6 +9,7 @@ function app(){
     <div>
       <Header />
       <Form />
+      <Foooter />
     </div>
   );
 }
