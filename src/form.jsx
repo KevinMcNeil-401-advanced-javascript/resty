@@ -2,9 +2,6 @@ import React from 'react';
 import './sass/form.scss';
 import JSONPretty from 'react-json-pretty';
 
-let historyArray = [];
-
-
 class Form extends React.Component {
   constructor() {
     super();
@@ -12,7 +9,6 @@ class Form extends React.Component {
       url: '',
       method: '',
       data: {},
-      prevous: '',
     };
   }
 
@@ -33,20 +29,14 @@ class Form extends React.Component {
       .then(response => response.json())
       .then(data => this.setState({ data: data }));
     let JSONUrl = JSON.stringify(event.target.URL.value);
-    localStorage.setItem(event.target.URL.value, JSONUrl);
-    for (let i = 0; i < historyArray.length; i++) {
-      if (url === historyArray[i]) {
-        console.log('already in history');
-      } else {
-        historyArray.push(url);
-      }
-    }
+    localStorage.setItem('url', JSONUrl);
 
   }
 
   render() {
     return (
       <div id="form">
+        <h2>Home Page</h2>
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <label>URL</label>
@@ -64,18 +54,6 @@ class Form extends React.Component {
           <p>{`Request: ${this.state.method}`}</p>
           <p>{`Url: ${this.state.url}`}</p>
           <p><JSONPretty id="json-pretty" data={this.state.data}></JSONPretty></p>
-          <p>History:</p>
-          <ul>
-            <li>{historyArray[0]}</li>
-            <li>{historyArray[1]}</li>
-            <li>{historyArray[2]}</li>
-            <li>{historyArray[3]}</li>
-            <li>{historyArray[4]}</li>
-            <li>{historyArray[5]}</li>
-            <li>{historyArray[6]}</li>
-            <li>{historyArray[7]}</li>
-            <li>{historyArray[8]}</li>
-          </ul>
         </div>
       </div>
     );
